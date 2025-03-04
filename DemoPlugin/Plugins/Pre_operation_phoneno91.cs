@@ -27,6 +27,8 @@ namespace DemoPlugin.Plugins
                         {
                             entity["telephone1"] = "+91" + phoneNumber;
 
+                            throw new InvalidPluginExecutionException("Rollback Test: Phone number update is reverted.");
+
                         }
                     }
                 }
