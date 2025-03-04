@@ -19,7 +19,13 @@ namespace DemoPlugin.Plugins
                     {
                         string accountName = entity.Attributes["name"].ToString();
                         entity.Attributes["name"] = accountName.ToUpper();
+
+                        //to test rollback
+                        //throw new InvalidPluginExecutionException("Simulated error to trigger rollback.");
+
                     }
+                    
+                   
                 }
                 catch (Exception ex)
                 {
