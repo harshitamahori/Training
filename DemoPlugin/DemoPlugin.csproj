@@ -97,7 +97,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateTask.cs" />
+    <Compile Include="Custom_Plugins\Create_Trial.cs" />
+    <Compile Include="Custom_Plugins\Custom_Delete.cs" />
+    <Compile Include="Custom_Plugins\DeleteTrial.cs" />
+    <Compile Include="Custom_Plugins\Update_Trial.cs" />
+    <Compile Include="Plugins\PreValidation_ValidateName.cs" />
+    <Compile Include="Plugins\Pre_operation_phoneno91.cs" />
+    <Compile Include="Plugins\Pre_operation_UpperName.cs" />
+    <Compile Include="Plugins\Pre_Validation_Fax.cs" />
+    <Compile Include="Plugins\Pre_Validation_Name.cs" />
     <Compile Include="Plugins\SampleCreateRead.cs" />
+    <Compile Include="Plugins\SampleDelete.cs" />
     <Compile Include="Plugins\SampleUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
