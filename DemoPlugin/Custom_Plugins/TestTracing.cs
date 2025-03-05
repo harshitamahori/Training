@@ -22,7 +22,7 @@ namespace DemoPlugin.Custom_Plugins
             {
                 tracingService.Trace("Deleting Customer record...");
 
-                //throw new InvalidPluginExecutionException("Test Exception: Customer deletion is being tracked.");
+                throw new InvalidPluginExecutionException("Test Exception: Customer deletion is being tracked.");
             }
             tracingService.Trace("Task Completed");
         }
