@@ -104,7 +104,7 @@ public class Program
             Console.WriteLine("5. Exit");
             Console.Write("Enter your choice (1-5): ");
 
-            string choice = Console.ReadLine();
+            string? choice = Console.ReadLine();
 
             switch (choice)
             {
@@ -118,9 +118,9 @@ public class Program
 
                 case "2":
                     Console.Write("\nEnter the book title you want to order: ");
-                    string orderTitle = Console.ReadLine();
+                    string? orderTitle = Console.ReadLine();
 
-                    Book orderBook = library.FirstOrDefault(b => b.getTitle().Equals(orderTitle, StringComparison.OrdinalIgnoreCase));
+                    Book? orderBook = library.FirstOrDefault(b => b.getTitle().Equals(orderTitle, StringComparison.OrdinalIgnoreCase));
 
                     if (orderBook != null)
                     {
@@ -129,10 +129,10 @@ public class Program
                         {
                             if (orderBook.OrderBook(orderQuantity))
                             {
-                                if (orderedBooks.ContainsKey(orderTitle))
-                                    orderedBooks[orderTitle] += orderQuantity;
+                                if (orderedBooks.ContainsKey(orderTitle!))
+                                    orderedBooks[orderTitle!] += orderQuantity;
                                 else
-                                    orderedBooks[orderTitle] = orderQuantity;
+                                    orderedBooks[orderTitle!] = orderQuantity;
                             }
                         }
                         else
@@ -163,9 +163,9 @@ public class Program
 
                 case "4":
                     Console.Write("\nEnter the book title you want to search: ");
-                    string searchTitle = Console.ReadLine();
+                    string? searchTitle = Console.ReadLine();
 
-                    Book foundBook = library.FirstOrDefault(b => b.getTitle().Equals(searchTitle, StringComparison.OrdinalIgnoreCase));
+                    Book? foundBook = library.FirstOrDefault(b => b.getTitle().Equals(searchTitle, StringComparison.OrdinalIgnoreCase));
 
                     if (foundBook != null)
                     {
