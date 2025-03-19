@@ -20,6 +20,7 @@ class Program
 
         await GetAsync(sharedClient);
         await GetFromJsonAsync(sharedClient);
+        await GetPaginatedData(sharedClient);
         await PostAsync(sharedClient);
         await PostAsJsonAsync(sharedClient);
         await PutAsync(sharedClient);
@@ -27,6 +28,7 @@ class Program
         await PatchAsync(sharedClient);
         await DeleteAsync(sharedClient);
         await HeadAsync(sharedClient);
+
 
         Console.WriteLine("All tasks completed.");
     }
@@ -57,6 +59,7 @@ class Program
     {
         try
         {
+
             var todos = await httpClient.GetFromJsonAsync<List<Todo>>("todos?userId=1&completed=false");
             Console.WriteLine("GET https://jsonplaceholder.typicode.com/todos?userId=1&completed=false HTTP/1.1");
             todos?.ForEach(Console.WriteLine);
@@ -68,6 +71,38 @@ class Program
         }
         
     }
+    static async Task GetPaginatedData(HttpClient httpClient)
+    {
+        try
+        {
+            int page = 1; // Start from the first page
+            int pageSize = 5; // Fetch 5 items per page
+            bool hasMoreData = true;
+
+            while (hasMoreData)
+            {
+                string url = $"todos?_page={page}&_limit={pageSize}"; // JSONPlaceholder supports _page & _limit
+                var todos = await httpClient.GetFromJsonAsync<List<Todo>>(url);
+
+                if (todos == null || todos.Count == 0)
+                {
+                    hasMoreData = false; // Stop if no more data
+                    break;
+                }
+
+                Console.WriteLine($"Page {page} Data:");
+                todos.ForEach(Console.WriteLine);
+                Console.WriteLine();
+
+                page++; // Move to the next page
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error in GetFromJsonAsync: {ex.Message}");
+        }
+    }
+
 
     static async Task PostAsync(HttpClient httpClient)
     {
