@@ -7,8 +7,8 @@ class Program
 {
     
     private static string dataverseUrl = "https://org5b5b5b82.crm.dynamics.com";  
-    private static string username = "harshitam@llcscg.com";  
-    private static string password = "Symbiotic1234";  
+    private static string username = "";  //id here
+    private static string password = "";   // passowrd here
 
     static async Task Main(string[] args)
     {
