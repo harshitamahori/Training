@@ -16,7 +16,6 @@ class Program
         // Check if all employees are older than 30
         bool allAbove30 = employeeList.All(emp => emp.Age > 30);
         Console.WriteLine("All employees above 30: " + allAbove30);
-        Console.WriteLine("All employees above 30: " + allAbove30);
 
         // Sum of all salaries
         decimal totalSalary = employeeList.Sum(emp => emp.Salary);
