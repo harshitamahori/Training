@@ -22,7 +22,7 @@ class Program
 
             ValidateNumber(num);  // This may throw an exception
         }
-        catch (FormatException ex)
+        catch (FormatException)
         {
             Console.WriteLine("Error: Please enter a valid integer.");
         }
